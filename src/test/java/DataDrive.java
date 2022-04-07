@@ -13,7 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class DataDrive {
 	public static void main(String[] args) throws IOException {
 		ArrayList<String> a = new ArrayList<String>();
-		FileInputStream fis = new FileInputStream("C:\\Users\\JANARDHAN\\OneDrive\\Desktop\\Book.xlsx");
+		FileInputStream fis = new FileInputStream("lib/Book.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		int sheets = workbook.getNumberOfSheets();
 		for (int i = 0; i < sheets; i++) {

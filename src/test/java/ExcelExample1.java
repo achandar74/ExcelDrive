@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ExcelExample1 {
 
 	public static void main(String[] args) throws IOException {
-		FileInputStream fis = new FileInputStream("C:\\Users\\JANARDHAN\\OneDrive\\Desktop\\Book.xlsx");
+		FileInputStream fis = new FileInputStream("lib/Book.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		int sheets = workbook.getNumberOfSheets();
 		for (int i = 0; i < sheets; i++) {
