@@ -39,6 +39,7 @@ public class ExcelDemo1 {
 		workbook.write(outputStream);
 		outputStream.flush();
 		outputStream.close();
+		workbook.close();
 	}
 
 }

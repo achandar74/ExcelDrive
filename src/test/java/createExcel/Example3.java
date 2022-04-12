@@ -51,5 +51,6 @@ public class Example3 {
 		FileOutputStream outputStream = new FileOutputStream("C:\\Users\\JANARDHAN\\OneDrive\\Desktop\\example2.xlsx");
 		workbook.write(outputStream);
 		outputStream.flush();
+		workbook.close();
 	}
 }

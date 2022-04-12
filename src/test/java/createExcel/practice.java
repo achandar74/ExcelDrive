@@ -14,10 +14,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class practice {
 	public static void main(String[] args) throws IOException {
-		ArrayList<String> a = new ArrayList<String>();
-		FileInputStream fis = new FileInputStream("lib/dfaf.xlsx");
+		ArrayList<String> allCellsData = new ArrayList<String>();
+		FileInputStream fis = new FileInputStream("./lib/dfaf.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		int sheets = workbook.getNumberOfSheets();
+
 		for (int i = 0; i < sheets; i++) {
 			if (workbook.getSheetName(i).equalsIgnoreCase("Sheet1")) {
 				XSSFSheet sheet = workbook.getSheetAt(i);
@@ -26,7 +27,7 @@ public class practice {
 				Iterator<Cell> ce = firstrow.cellIterator();
 				int k = 0;
 				int column = 0;
-				int d[] = { 1, 2, 3 };
+				
 				while (ce.hasNext()) {
 					Cell value = ce.next();
 					if (value.getStringCellValue().equalsIgnoreCase("userdetails")) {
@@ -35,27 +36,31 @@ public class practice {
 					k++;
 				}
 				System.out.println(column);
+				int arrayCounter=1;
 				while (row.hasNext()) {
-					for (int j = 0; j < d.length; j++) {
+					
 						Row r = row.next();
-						if (r.getCell(column).getStringCellValue().equalsIgnoreCase("data" + d[j] + "")) {
+						if (r.getCell(column).getStringCellValue().equalsIgnoreCase("data" + arrayCounter + "")) {
 							Iterator<Cell> cv = r.cellIterator();
 							while (cv.hasNext()) {
 								Cell c = cv.next();
 								if (c.getCellType() == CellType.STRING) {
-									a.add(c.getStringCellValue());
+									allCellsData.add(c.getStringCellValue());
 								} else {
-									a.add(NumberToTextConverter.toText(c.getNumericCellValue()));
+									allCellsData.add(NumberToTextConverter.toText(c.getNumericCellValue()));
 								}
 							}
-							System.out.println(a.get(0));
-							System.out.println(a.get(1));
-							System.out.println(a.get(2));
 						}
-					}
+						arrayCounter++;
+					
 				}
 			}
 		}
-
+		for (String cellData : allCellsData) {
+			
+			System.out.println(cellData);
+		}
+		workbook.close();
+		fis.close();
 	}
 }

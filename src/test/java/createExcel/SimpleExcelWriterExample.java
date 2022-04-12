@@ -48,6 +48,7 @@ public class SimpleExcelWriterExample {
          
         try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\JANARDHAN\\OneDrive\\Desktop\\demo.xlsx")) {
             workbook.write(outputStream);
+            workbook.close();
         }
     }
  

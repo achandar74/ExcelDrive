@@ -35,5 +35,6 @@ public class ExcelExample1 {
 				}
 			}
 		}
+		workbook.close();
 	}
 }
